@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="og:image" content="favicon.ico" />
+    <meta
+            name="description"
+            content="Joue seul ou avec tes amis !"
+    />
+    <meta name="theme-color" content="#49dd98" />
+    <title>Menu - Kiss Marry kill</title>
+</head>
+
+<body>
+    <!--<div class="codezone">
+        <input type="text" id="input" placeholder="Entrez un code">
+        <button class="valider" type="button" onclick="getValue();"><b>Valider</b></button>
+    </div>-->
+    <button class="help" data-modal-target="#modal">?</button>
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Comment jouer ?</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            Vous n'avez jamais joué à ce jeu ? <br> Rassurez-vous, c'est simple comme bonjour ! <br><br>
+            Choisissez une catégorie, vous y verrez un trio d'individus.
+            <br>
+            Si vous ne connaissez pas les personnages tirés au hasard, vous pouvez cliquer sur le bouton "Générer" en bas de votre écran.
+            <br>
+            Si le trio vous plait, vous pourrez faire un classement par ordre de préférence : "marry" pour votre chouchou, "kiss" pour la 2e place du podium et "kill" pour celui que vous aimez le moins (tout cela en faisant glisser les icône 💋/💍/🔪 sous les personnages correpondants).
+            <br>
+            Si tuer un personnage vous fait mal au cœur, remplacez "kill" par "hug" (câlin). <br>
+            <br>
+            Je rajouterai des catégories au fur et à mesure, n'hésitez pas à me faire des suggestions dans le formulaire en bas de la page d'accueil.
+            Bon amusement !
+        </div>
+    </div>
+    
+    <header>
+        <div id="overlay"></div>
+        <img class="logo" src="kmk logo blanc.png" alt="Logo Kiss Marry Kill">
+        <h2>Choisissez votre version du jeu</h2>
+    </header>
+   
+    <div class="bulles">
+        <a href="html/actors.html"><button class="actors">Acteurs</button></a>
+        <a href="html/anime.html"><button class="anime">Anime</button></a>
+        <a href="html/cartoon.html"><button class="cartoon">Cartoons</button></a>
+        <a href="html/disney.html"><button class="disney">Disney</button></a>
+        <a href="html/series.html"><button class="series">Films & Series</button></a>
+        <a href="html/halloween.html"><button class="halloween">Halloween</button></a>
+        <a href="html/games.html"><button class="games">Jeux-Vidéos</button></a>
+        <a href="html/kpop.html"><button class="kpop">K-pop</button></a>        
+        <a href="html/music.html"><button class="music">Musiciens</button></a>
+        <a href="html/sportifs.html"><button class="sport">Sportifs</button></a>
+    </div>
+    <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSf7SjPcivX3vlRBE9nA-QPPs6JD6Bq5UCZTxhhNaTAVmmbW9w/viewform?embedded=true"
+        width="800" height="800" frameborder="0" marginheight="0" marginwidth="0" class="form">Chargement…</iframe>
+    <p>©2021-2024 - Hélène Lecomte</p>
+    <script src="popup.js"></script>
+    <script>
+        codesecret = "zouisday"
+        function getValue() {
+            // Sélectionner l'élément input et récupérer sa valeur
+            let input = document.getElementById("input").value;
+            if(codesecret == input) {
+                prenoms.style.visibility = 'visible';
+                alert("Vous avez débloqué une nouvelle catégorie !");
+            }else if(codesecret != input & input != ""){
+                alert("Ce code n'existe pas :(")
+            }
+            else {
+                alert("Vous n'avez rien écrit !")
+            }
+        }
+    </script>
+    <style>
+        * {
+            user-select: none !important;
+            font-family: "Space Grotesk", sans-serif;
+            margin: 0px;
+            background-color: #1e1e1e;;
+            color: white;
+        }
+
+        .codezone {
+            position: absolute;
+            margin-top: 60px;
+            margin-right: 100px;
+            top: 0;
+            right: 0;
+        }
+
+        input {
+            height: 25px;
+            border-radius: 10px;
+            outline: none;
+            border: solid;
+            border-color: #FF9696;
+            border-width: 2px;
+            padding-left: 5px;
+        }
+
+        .valider {
+            border-radius: 10px;
+            height: 30px;
+            width: 100px;
+            font-size: 16px;
+            margin: 0;
+            background-color: #ee6a91;
+        }
+
+        .valider:hover {
+            transform: scale(1);
+        }
+
+        button {
+            background-color: #c7c7c7;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            position: unset;
+            width: 300px;
+            height: 300px;
+            border-radius: 300px;
+            font-size: 30px;
+            margin: 50px;
+            margin-top: 80px;
+            outline: 0;
+            transition: all ease-in .2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .bulles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .help {
+            width: 40px;
+            height: 40px;
+            margin: 50px;
+            background-color: rgba(255, 255, 255, 0.388);
+            opacity: 0.5;
+            font-size: 20px;
+            right: 0;
+            top: 0;
+            position: absolute;
+        }
+
+        .help:hover {
+            opacity: 1;
+            transform: scale(1.0);
+        }
+
+        .close-button {
+            width: unset;
+            height: unset;
+            font-size: 30px;
+            margin: 0px;
+            background-color: unset;
+            color: rgb(255, 255, 255);
+            opacity: 0.5;
+            font-weight: bold;
+        }
+
+        .close-button:hover {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: 350ms ease-in-out;
+            background-color: white;
+            border: solid 1px rgb(180, 180, 180);
+            border-radius: 20px;
+            z-index: 10;
+            width: 550px;
+            max-width: 80%;
+        }
+
+        .modal.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modal-header {
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: solid 2px rgb(180, 180, 180);
+        }
+
+        .modal-header .title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .modal-body {
+            padding: 10px 15px;
+        }
+
+        #overlay {
+            position: fixed;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .5);
+            transition: 200ms ease-in-out;
+            pointer-events: none;
+        }
+
+        #overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .kpop {
+            background-color: transparent;
+            border: solid 2px;
+            border-color: #d13967;
+        }
+
+        .kpop:hover {
+            box-shadow: 0px 0px 20px #d13967;
+        }
+
+        .anime {
+            background-color: transparent;
+            border: solid 2px;
+            border-color: #52a9d1;
+        }
+
+        .anime:hover {
+            box-shadow: 0px 0px 20px #52a9d1;
+        }
+
+        .series {
+            background-color: transparent;
+            border: solid 2px;
+            border-color: goldenrod;
+        }
+
+        .series:hover {
+            box-shadow: 0px 0px 20px goldenrod;
+        }
+
+        .disney {
+            background-color: transparent;
+            border: solid 2px;
+            border-color: #9452d1;
+        }
+
+        .disney:hover {
+            box-shadow: 0px 0px 20px #9452d1;
+        }
+
+        .games {
+            background-color: transparent;
+            border: solid 2px;
+            border-color: #49c58b;
+        }
+
+        .games:hover {
+            box-shadow: 0px 0px 20px #49c58b;
+        }
+
+        .actors {
+            background-color: transparent;
+            border: solid 2px;
+            border-color: #FD6E6E;
+        }
+
+        .actors:hover {
+            box-shadow: 0px 0px 20px #FD6E6E;
+        }
+
+        .cartoon {
+            background-color: transparent;
+            border: solid 2px;
+            border-color: #4479ff;
+        }
+
+        .cartoon:hover {
+            box-shadow: 0px 0px 20px #4479ff;
+        }
+
+        .music {
+            background-color: transparent;
+            border: solid 2px;
+            border-color: #B00000;
+        }
+
+        .music:hover {
+            box-shadow: 0px 0px 20px #B00000;
+        }
+        
+        .halloween {
+            background-color: transparent;
+            border: solid 2px;
+            border-color: #FF823A;
+        }
+
+        .halloween:hover {
+            box-shadow: 0px 0px 20px #FF823A;
+        }
+
+        .sport {
+            background-color: transparent;
+            border: solid 2px;
+            border-color: #ff8c00;
+        }
+
+        .sport:hover {
+            box-shadow: 0px 0px 20px #ff8c00;
+        }
+
+
+        h1 {
+            font-size: 50px;
+            margin-top: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        h2 {
+            font-size: 25px;
+            text-align: center;
+            color: #9e9e9e;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .form {
+            margin-top: 300px;
+            text-align: center;
+            width: 100%;
+        }
+
+        p {
+            text-align: center;
+            margin: 10px;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        .logo {
+            margin-top: 20px;
+            width: 30%;
+            text-align: center;
+        }
+
+    </style>
+</body>
+
+</html>
