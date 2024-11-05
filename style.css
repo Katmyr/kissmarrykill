@@ -224,6 +224,7 @@ header {
     .randoms img {
         aspect-ratio: 2/1;
         height: 80%;
+        object-position: center 30%;
     }
 
     .randoms div {
