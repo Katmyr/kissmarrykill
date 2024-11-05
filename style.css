@@ -222,7 +222,7 @@ header {
     }
 
     .randoms img {
-        aspect-ratio: 3/2;
+        aspect-ratio: 16/9;
         height: 80%;
     }
 
