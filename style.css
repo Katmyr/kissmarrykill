@@ -193,6 +193,33 @@ header {
     text-align: center;
 }
 
+@media (max-width: 768px) {
+    h2 {
+        font-size: 20px;
+    }
+    button {
+        height: 7%;
+        font-size: 20px;
+    }
+    .menu {
+        width : 100px;
+        height: 100px;
+        font-size: 20px;
+    }
+    .randoms {
+        flex-direction: column;
+    }
+
+    .randoms img {
+        aspect-ratio: inherit;
+        height: 70%;
+    }
+
+    .randoms div {
+        width: 60%;
+    }
+}
+
 .logo {
     margin-top: 20px;
     width: 30%;
