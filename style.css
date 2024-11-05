@@ -15,6 +15,35 @@ body {
     background-color: #1e1e1e;
     color: #ffffff;
     font-family: "Space Grotesk", sans-serif;
+    background-image:
+    radial-gradient(at 50% 50%, #1e1e1e 0px, transparent 100%),
+    radial-gradient(at 29% 74%, var(--main-color) 0px, transparent 20%),
+    radial-gradient(at 31% 83%, var(--hover-color) 0px, transparent 20%),
+    radial-gradient(at 77% 7%, var(--main-color) 0px, transparent 20%),
+    radial-gradient(at 19% 18%, var(--main-color) 0px, transparent 20%),
+    radial-gradient(at 70% 36%, var(--hover-color) 0px, transparent 20%),
+    radial-gradient(at 5% 0%, var(--hover-color) 0px, transparent 20%),
+    radial-gradient(at 59% 57%, var(--main-color) 0px, transparent 20%);
+    background-size: 150% 150%;
+    animation: my_animation 10s ease infinite;
+}
+
+@keyframes my_animation {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
 .randoms {
