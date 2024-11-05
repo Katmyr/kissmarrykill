@@ -194,8 +194,18 @@ header {
 }
 
 @media (max-width: 768px) {
-    h2 {
+    .randoms h3 {
         font-size: 20px;
+    }
+    .randoms h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    h2 {
+        right: auto;
+        top: 5%;
+        position :fixed;
+        font-size: 18px;
     }
     button {
         height: 7%;
@@ -208,15 +218,23 @@ header {
     }
     .randoms {
         flex-direction: column;
+        margin-top: 0;
     }
 
     .randoms img {
-        aspect-ratio: inherit;
-        height: 70%;
+        aspect-ratio: 3/2;
+        height: 80%;
     }
 
     .randoms div {
         width: 60%;
+        height: unset;
+        max-height: 100%;
+    }
+
+    .container {
+        min-width: unset;
+        min-height: unset;  
     }
 }
 
