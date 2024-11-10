@@ -127,6 +127,7 @@ button:hover {
 .close-button:hover {
     transform: scale(1);
     opacity: 1;
+    cursor: pointer;
 }
 
 .modal {
@@ -134,9 +135,10 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    transition: 350ms ease-in-out;
-    background-color: white;
-    border: solid 1px rgb(180, 180, 180);
+    transition: 250ms ease-in-out;
+    background-color: #1e1e1e59;
+    border: solid 1px rgb(68, 68, 68);
+    backdrop-filter: blur(4px);
     border-radius: 20px;
     z-index: 10;
     width: 550px;
@@ -152,7 +154,7 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: solid 2px rgb(180, 180, 180);
+    border-bottom: solid 2px rgb(68, 68, 68);
 }
 
 .modal-header .title {
