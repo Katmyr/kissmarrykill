@@ -1,4 +1,4 @@
-let gens = [
+let gens= [
     ["Blanche Neige", "Blanche Neige", "https://i.pinimg.com/564x/87/a3/ba/87a3ba9a132c696b68ed4a97715d63a1.jpg"],
     ["La Méchante Reine", "Blanche Neige", "https://i.pinimg.com/564x/36/b9/c8/36b9c8143c281564121b10e371fdb3ff.jpg"],
     ["Cendrillon", "Cendrillon", "https://i.pinimg.com/236x/35/ea/2a/35ea2aa86d9a9ea08fd09c66ea1b2256.jpg"],
@@ -50,8 +50,12 @@ let gens = [
     ["Noa", "La Fée Clochette", "https://i.pinimg.com/564x/9d/77/16/9d77168aad89b8c5755265d909241e00.jpg"],
     ["Tiana", "La Princesse et la Grenouille", "https://i.pinimg.com/236x/f8/18/4d/f8184d05f09ec46461f0c5e4bfad36e4.jpg"],
     ["Naveen", "La Princesse et la Grenouille", "https://i.pinimg.com/236x/44/4a/33/444a330ac92ed584cf9db7ccce34acc0.jpg"],
-    ["Dr Facilier", "La Princesse et la Grenouille", "https://i.pinimg.com/564x/57/bc/8c/57bc8c3a8c51cb0189094bcd00766fa3.jpg"]
+    ["Dr Facilier", "La Princesse et la Grenouille", "https://i.pinimg.com/564x/57/bc/8c/57bc8c3a8c51cb0189094bcd00766fa3.jpg"],
     ["Charlotte", "La Princesse et la Grenouille", "https://i.pinimg.com/236x/e7/c3/99/e7c3995f59b6e7a88ee3676d40bb4219.jpg"],
+    ["Ray", "La Princesse et la Grenouille", "https://i.pinimg.com/564x/17/60/fe/1760fec56a55a6cb917b0d72a1b2ac97.jpg"],
+    ["Big Daddy", "La Princesse et la Grenouille", "https://i.pinimg.com/564x/06/da/68/06da684130f5353798bece4c1011f2af.jpg"],
+    ["Eudora", "La Princesse et la Grenouille", "https://i.pinimg.com/564x/e3/be/11/e3be1168f7f0cf97dfcbb0478264746e.jpg"],
+    ["James", "La Princesse et la Grenouille", "https://i.pinimg.com/564x/86/74/ab/8674ab80ca5321bf0ea20e94f3301389.jpg"],
     ["Flynn", "Raiponce", "https://i.pinimg.com/236x/04/f9/35/04f93570abf5044ff3804782a9e2119d.jpg"],
     ["Merida", "Rebelle", "https://i.pinimg.com/236x/bd/3f/3f/bd3f3fb8e39e53102527d98cadd010a3.jpg"],
     ["Elsa", "La Reine des Neiges", "https://i.pinimg.com/236x/a7/15/de/a715de33669982c172a4f70b3fc8029e.jpg"],
@@ -97,29 +101,337 @@ let gens = [
     ["Bruno Madrigal", "Encanto", "https://i.pinimg.com/564x/e5/d5/35/e5d53561c9b4df03a4ce8ee9864fb34f.jpg"],
     ["Flam", "Elementaire", "https://i.pinimg.com/564x/6e/4f/d9/6e4fd9020501672079b35eed713776e8.jpg"],
     ["Flack", "Elementaire", "https://i.pinimg.com/564x/a4/92/31/a492316f4f2fd53530d1b355faadc7be.jpg"],
+    ["Simba", "Le Roi Lion", "https://i.pinimg.com/564x/76/fd/1f/76fd1fb1c5e0e9370038a37143324ead.jpg"],
+    ["Nala", "Le Roi Lion", "https://i.pinimg.com/564x/ef/14/cf/ef14cfa7c8e4ca984998278e6250e27b.jpg"],
+    ["Mufasa", "Le Roi Lion", "https://i.pinimg.com/564x/b8/4a/b7/b84ab7194608b503072ecd57453aa19d.jpg"],
+    ["Scar", "Le Roi Lion", "https://i.pinimg.com/736x/17/18/21/17182150605edbfcf436ec49af8a65c7.jpg"],
+    ["Pumba", "Le Roi Lion", "https://i.pinimg.com/564x/a0/aa/01/a0aa01b284bf19115b5dd0ad7a02ef4f.jpg"],
+    ["Timon", "Le Roi Lion", "https://i.pinimg.com/564x/f9/e4/aa/f9e4aa1efd6d54fa8b1a89ec6969317b.jpg"],
+    ["Kiara", "Le Roi Lion", "https://i.pinimg.com/564x/a7/49/2a/a7492a3c0bc5fdf35ce3741939d2f209.jpg"],
+    ["Kovu", "Le Roi Lion", "https://i.pinimg.com/564x/45/61/f8/4561f8952d69a61778ebc333d379a3d2.jpg"],
+    ["Nick", "Zootopie", "https://i.pinimg.com/564x/c2/20/6c/c2206c553236e20b2f4c1b74ab62173f.jpg"],
+    ["Judy", "Zootopie", "https://i.pinimg.com/564x/1f/ee/9f/1fee9f9df2db096fabbb38561cf3693f.jpg"],
 ]
+
+// Définir la clé du localStorage selon la catégorie
+const localStorageKey = `countersData_disney`;
+
+
+gens = gens.map(person => ({
+    name: person[0],
+    origin: person[1],
+    image: person[2],
+    kiss: 0,
+    marry: 0,
+    kill: 0
+}));
+
+
+console.log(gens); // Affiche la nouvelle structure avec les compteurs
+
 
 function generate() {
     let person1 = gens[Math.floor(Math.random() * gens.length)];
     let person2 = gens[Math.floor(Math.random() * gens.length)];
     let person3 = gens[Math.floor(Math.random() * gens.length)];
 
-    if (person1[0] == person2[0] || person1[0] == person3[0] || person2[0] == person3[0]) {
+    if (person1.image == person2.image || person1.image == person3.image || person2.image == person3.image) {
         setTimeout(() => {
             generate();
         }, 100);
     } else {
-        document.getElementById('person1-text').innerText = person1[0];
-        document.getElementById('person1-desc').innerText = person1[1];
-        document.getElementById('person1-image').src = person1[2];
-        document.getElementById('person2-text').innerText = person2[0];
-        document.getElementById('person2-desc').innerText = person2[1];
-        document.getElementById('person2-image').src = person2[2];
-        document.getElementById('person3-text').innerText = person3[0];
-        document.getElementById('person3-desc').innerText = person3[1];
-        document.getElementById('person3-image').src = person3[2];
+        document.getElementById('person1-text').innerText = person1.name;
+        document.getElementById('person1-desc').innerText = person1.origin;
+        document.getElementById('person1-image').src = person1.image;
+
+        document.getElementById('person2-text').innerText = person2.name;
+        document.getElementById('person2-desc').innerText = person2.origin;
+        document.getElementById('person2-image').src = person2.image;
+
+
+        document.getElementById('person3-text').innerText = person3.name;
+        document.getElementById('person3-desc').innerText = person3.origin;
+        document.getElementById('person3-image').src = person3.image;
+
+    }
+
+    document.querySelectorAll('.selected-icon').forEach(icon => icon.remove());
+}
+
+generate()
+loadCounters()
+
+// Initialiser les compteurs ou charger depuis le localStorage
+function loadCounters() {
+    const data = localStorage.getItem(localStorageKey);
+    if (data) {
+        const counters = JSON.parse(data);
+        // Mettre à jour gens avec les données du localStorage
+        gens = gens.map(person => ({
+            ...person,
+            kiss: counters[person.image]?.kiss || 0,
+            marry: counters[person.image]?.marry || 0,
+            kill: counters[person.image]?.kill || 0,
+        }));
+        //console.log("Compteurs chargés depuis localStorage :", counters);
     }
 }
 
-generate();
 
+
+// Charger les compteurs depuis localStorage
+// Fonction pour charger les compteurs depuis localStorage
+function loadCountersFromLocalStorage() {
+    const data = localStorage.getItem(localStorageKey);
+    
+    if (data) {
+        try {
+            const counters = JSON.parse(data);
+            //console.log("Compteurs chargés depuis localStorage:", counters);
+            // Assurez-vous que counters est bien un objet
+            if (typeof counters === 'object' && counters !== null) {
+                return counters;
+            } else {
+                console.error("Les données dans localStorage ne sont pas un objet valide.");
+                return {}; // Retourne un objet vide en cas d'erreur
+            }
+        } catch (error) {
+            console.error("Erreur lors du parsing des données depuis localStorage:", error);
+            return {}; // Retourne un objet vide si une erreur se produit
+        }
+    } else {
+        console.log("Aucune donnée trouvée dans localStorage.");
+        return {}; // Retourne un objet vide si aucune donnée n'est trouvée
+    }
+}
+
+// Fonction pour trier les personnages selon l'action
+function getSortedRankings(action, counters) {
+    console.log("Données des compteurs pour le tri:", counters);
+    
+    // Vérification que 'counters' est un objet
+    if (typeof counters !== 'object' || counters === null) {
+        console.error("Les données des compteurs sont invalides.");
+        return []; // Retourne un tableau vide si les données sont invalides
+    }
+
+    return Object.entries(counters) // Convertir l'objet en tableau [clé, valeur]
+        .map(([image, scores]) => ({
+            image,
+            name: scores.name,  // Récupérer le nom
+            origin: scores.origin,  // Récupérer l'origine
+            [action]: scores[action],  // Récupérer le score de l'action
+        }))
+        .sort((a, b) => b[action] - a[action]);  // Trier par score décroissant
+}
+
+// Test pour charger les compteurs et trier par action
+const counters = loadCountersFromLocalStorage();
+const sortedByKiss = getSortedRankings("kiss", counters);
+//console.log("Classement par Kiss:", sortedByKiss);
+
+
+// Créer le classement pour chaque action
+// Fonction pour trier les classements selon l'action (kiss, marry, kill)
+function getSortedRankings(action, counters) {
+    return Object.entries(counters)
+        .map(([image, scores]) => ({
+            image,
+            name: scores.name,
+            origin: scores.origin,
+            [action]: scores[action],
+        }))
+        .sort((a, b) => b[action] - a[action]); // Tri des personnages par action (du plus grand au plus petit)
+}
+
+let currentPodiumIndex = 0; // 0 = Kiss, 1 = Marry, 2 = Kill
+
+// Tableau des classements pour chaque action
+let podiums = [];
+
+// Fonction pour afficher le podium actuel
+
+// Fonction de navigation entre les podiums
+function changePodium(direction) {
+    // Met à jour l'index du podium, avec un cycle (0, 1, 2)
+    currentPodiumIndex = (currentPodiumIndex + direction + podiums.length) % podiums.length;
+    showCurrentPodium();
+}
+
+
+// Afficher les podiums des classements dans l'HTML
+function displayRankings() {
+    const counters = loadCountersFromLocalStorage();
+
+    // Stocker chaque classement dans un tableau de podiums
+    podiums = [
+        getSortedRankings('kiss', counters),
+        getSortedRankings('marry', counters),
+        getSortedRankings('kill', counters)
+    ];
+
+    showCurrentPodium(); // Affiche le premier podium par défaut (kiss)
+}
+
+
+
+// Mettre à jour les podiums avec les informations triées
+function updatePodiumDisplay(podium, action) {
+    // Met à jour le titre du podium en fonction de l'action
+    const podiumTitle = document.getElementById("podium-title");
+    const actionTitles = {
+        kiss: "Top 3 des plus embrassés 💋",
+        marry: "Top 3 des plus mariés 💍",
+        kill: "Top 3 des plus tués 🔪"
+    };
+    podiumTitle.textContent = actionTitles[action];
+
+    // Vérifie que le podium contient bien un top 3
+    if (podium.length >= 3) {
+        // Met à jour chaque podium avec les images, noms, origines, et scores selon l'action sélectionnée
+        document.getElementById("img-1").src = podium[1].image;
+        document.getElementById("name-1").textContent = podium[1].name;
+        document.getElementById("source-1").textContent = podium[1].origin;
+        document.getElementById("score-1").textContent = `${podium[1][action] || 0} fois`;
+
+        document.getElementById("img-2").src = podium[0].image;
+        document.getElementById("name-2").textContent = podium[0].name;
+        document.getElementById("source-2").textContent = podium[0].origin;
+        document.getElementById("score-2").textContent = `${podium[0][action] || 0} fois`;
+
+        document.getElementById("img-3").src = podium[2].image;
+        document.getElementById("name-3").textContent = podium[2].name;
+        document.getElementById("source-3").textContent = podium[2].origin;
+        document.getElementById("score-3").textContent = `${podium[2][action] || 0} fois`;
+    }
+}
+
+function showCurrentPodium() {
+    // Récupère les podiums pour chaque action à partir du localStorage
+    const podiums = {
+        kiss: getSortedRankings('kiss', loadCountersFromLocalStorage()),
+        marry: getSortedRankings('marry', loadCountersFromLocalStorage()),
+        kill: getSortedRankings('kill', loadCountersFromLocalStorage())
+    };
+
+    // Récupère l'action courante basée sur l'index
+    const actions = ["kiss", "marry", "kill"];
+    const action = actions[currentPodiumIndex];
+
+    // Appelle la fonction d'affichage avec le podium correspondant
+    updatePodiumDisplay(podiums[action], action);
+}
+
+
+
+// Appeler cette fonction pour afficher les podiums à chaque mise à jour
+displayRankings();
+
+// Sauvegarder les compteurs dans localStorage
+function saveCounters() {
+    const countersData = gens.reduce((acc, person) => {
+        acc[person.image] = {
+            name: person.name,
+            origin: person.origin,
+            kiss: person.kiss,
+            marry: person.marry,
+            kill: person.kill
+        };
+        return acc;
+    }, {});
+    localStorage.setItem(localStorageKey, JSON.stringify(countersData));
+    //console.log("Compteurs sauvegardés dans le localStorage :", countersData);
+}
+
+
+//########################
+function updateCountersByImage() {
+    document.querySelectorAll('.person-card').forEach((card) => {
+        const imageSrc = card.querySelector('img').src; // Utiliser l'image pour identifier le personnage
+        const selectedIcon = card.querySelector('.selected-icon');
+
+        if (selectedIcon) {
+            const iconContent = selectedIcon.textContent.trim(); // Récupère l'icône sélectionnée
+
+            // Trouver le personnage correspondant par l'image
+            const person = gens.find(p => p.image === imageSrc);
+
+            if (person) {
+                // Incrémente le compteur correspondant en fonction de l'icône choisie
+                if (iconContent === '💋') {
+                    person.kiss++;
+                } else if (iconContent === '💍') {
+                    person.marry++;
+                } else if (iconContent === '🔪') {
+                    person.kill++;
+                }
+            }
+        }
+    });
+    // Sauvegarder les compteurs dans le localStorage après chaque mise à jour
+    saveCounters();
+}
+
+
+
+function validateChoices() {
+    let allChosen = true; // Vérifie si tous les personnages ont une icône sélectionnée
+    let chosenIcons = []; // Liste pour stocker les icônes choisies
+
+    // Variable pour savoir si on doit afficher l'alerte ou non
+    let errorOccurred = false;
+
+    // Parcours tous les personnages
+    document.querySelectorAll('.person-card').forEach((card, index) => {
+        const selectedIcon = card.querySelector('.selected-icon'); // Trouve l'icône sélectionnée
+        const personId = card.dataset.id; // Utilise l'ID unique du personnage
+        
+        if (selectedIcon) {
+            const iconContent = selectedIcon.textContent.trim(); // Récupère l'emoji
+
+            // Vérifie si cette icône a déjà été choisie
+            if (chosenIcons.includes(iconContent)) {
+                if (!errorOccurred) {
+                    alert("Erreur : Vous avez sélectionné plusieurs fois la même icône.");
+                    errorOccurred = true; // Marque qu'une erreur a eu lieu pour éviter d'afficher plusieurs alertes
+                }
+                return; // Arrête l'exécution ici si un doublon est détecté
+            } else {
+                chosenIcons.push(iconContent); // Ajoute l'icône choisie à la liste
+            }
+        } else {
+            allChosen = false; // Si un personnage n'a pas de choix
+        }
+    });
+
+    // Vérifie si tous les personnages ont une action
+    if (!allChosen) {
+        if (!errorOccurred) {
+            alert("Erreur : Tous les personnages doivent avoir une action.");
+            errorOccurred = true; // Marque qu'une erreur a eu lieu
+        }
+        return; // Arrête l'exécution ici si un personnage n'a pas de choix
+    }
+
+    // Si tout est bon, on affiche un message de validation
+    if (!errorOccurred) {
+        console.log("Validation réussie !");
+        console.log("Icônes choisies :", chosenIcons);
+        // Incrémenter les compteurs en fonction des icônes choisies et de l'index
+       // Met à jour les compteurs en fonction des icônes choisies
+       // Met à jour les compteurs en fonction des icônes choisies
+        // Mise à jour des compteurs après validation
+        updateCountersByImage();
+
+
+        // Afficher les compteurs mis à jour dans la console
+        console.log(gens);
+        saveCounters(gens.reduce((acc, p) => {
+            acc[p.image] = { marry: p.marry, kiss: p.kiss, kill: p.kill };
+            return acc;
+        }, {})); 
+        displayRankings(); // Sauvegarde dans le localStorage
+        generate();
+        // Ajoute ici toute action supplémentaire après la validation
+    }
+}
