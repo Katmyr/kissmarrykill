@@ -47,6 +47,7 @@ let gens = [
     ["Nezuko", "Demon Slayer", "https://i.pinimg.com/564x/24/b5/fd/24b5fd63b79a3d88584c6bcafd14c6ec.jpg"],
     ["Giyû", "Demon Slayer", "https://i.pinimg.com/564x/01/a0/64/01a064866c62da820a8dd591c21b5c7c.jpg"],
     ["Zenitsu", "Demon Slayer", "https://i.pinimg.com/564x/46/63/cb/4663cbd74f685235a381f26df6e0f89b.jpg"],
+    ["Shinobu", "Demon Slayer", "https://i.pinimg.com/736x/84/1f/63/841f63ada80ae4499ffceb1787dcc852.jpg"],
     ["Saiki", "Saiki Kusuo", "https://i.pinimg.com/564x/11/b7/b0/11b7b0be3fe65903ed99e25167522681.jpg"],
     ["Eren", "L'Attaque des Titans", "https://i.pinimg.com/564x/25/b2/d6/25b2d6e5db030175f353de288d89aeb4.jpg"],
     ["Mikasa", "L'Attaque des Titans", "https://i.pinimg.com/564x/91/16/1e/91161e935bc2d056a98fa461e1852c69.jpg"],
@@ -170,28 +171,328 @@ let gens = [
     ["Retsu", "Bleach", "https://i.pinimg.com/564x/c2/e1/b1/c2e1b161662632ab95301d81e6e6e2d8.jpg"],
     ["Rangiku Matsumoto", "Bleach", "https://i.pinimg.com/736x/70/cf/5a/70cf5acb03af10295364d5fe55d1f4c6.jpg"],
     ["Orihime Inoue", "Bleach", "https://i.pinimg.com/564x/c1/71/27/c1712712fa56834844c34a11a3e0618a.jpg"],
+    ["Thorfinn", "Vinland Saga", "https://i.pinimg.com/564x/fc/2c/8b/fc2c8b775f36d9a4f941c4589ca286fe.jpg"],
 ]
+
+// Définir la clé du localStorage selon la catégorie
+const localStorageKey = `countersData_anime`;
+
+
+gens = gens.map(person => ({
+    name: person[0],
+    origin: person[1],
+    image: person[2],
+    kiss: 0,
+    marry: 0,
+    kill: 0
+}));
+
+
+console.log(gens); // Affiche la nouvelle structure avec les compteurs
+
 
 function generate() {
     let person1 = gens[Math.floor(Math.random() * gens.length)];
     let person2 = gens[Math.floor(Math.random() * gens.length)];
     let person3 = gens[Math.floor(Math.random() * gens.length)];
 
-    if (person1[0] == person2[0] || person1[0] == person3[0] || person2[0] == person3[0]) {
+    if (person1.image == person2.image || person1.image == person3.image || person2.image == person3.image) {
         setTimeout(() => {
             generate();
         }, 100);
     } else {
-        document.getElementById('person1-text').innerText = person1[0];
-        document.getElementById('person1-desc').innerText = person1[1];
-        document.getElementById('person1-image').src = person1[2];
-        document.getElementById('person2-text').innerText = person2[0];
-        document.getElementById('person2-desc').innerText = person2[1];
-        document.getElementById('person2-image').src = person2[2];
-        document.getElementById('person3-text').innerText = person3[0];
-        document.getElementById('person3-desc').innerText = person3[1];
-        document.getElementById('person3-image').src = person3[2];
+        document.getElementById('person1-text').innerText = person1.name;
+        document.getElementById('person1-desc').innerText = person1.origin;
+        document.getElementById('person1-image').src = person1.image;
+
+        document.getElementById('person2-text').innerText = person2.name;
+        document.getElementById('person2-desc').innerText = person2.origin;
+        document.getElementById('person2-image').src = person2.image;
+
+
+        document.getElementById('person3-text').innerText = person3.name;
+        document.getElementById('person3-desc').innerText = person3.origin;
+        document.getElementById('person3-image').src = person3.image;
+
+    }
+
+    document.querySelectorAll('.selected-icon').forEach(icon => icon.remove());
+}
+
+generate()
+loadCounters()
+
+// Initialiser les compteurs ou charger depuis le localStorage
+function loadCounters() {
+    const data = localStorage.getItem(localStorageKey);
+    if (data) {
+        const counters = JSON.parse(data);
+        // Mettre à jour gens avec les données du localStorage
+        gens = gens.map(person => ({
+            ...person,
+            kiss: counters[person.image]?.kiss || 0,
+            marry: counters[person.image]?.marry || 0,
+            kill: counters[person.image]?.kill || 0,
+        }));
+        //console.log("Compteurs chargés depuis localStorage :", counters);
     }
 }
 
-generate();
+
+
+// Charger les compteurs depuis localStorage
+// Fonction pour charger les compteurs depuis localStorage
+function loadCountersFromLocalStorage() {
+    const data = localStorage.getItem(localStorageKey);
+    
+    if (data) {
+        try {
+            const counters = JSON.parse(data);
+            //console.log("Compteurs chargés depuis localStorage:", counters);
+            // Assurez-vous que counters est bien un objet
+            if (typeof counters === 'object' && counters !== null) {
+                return counters;
+            } else {
+                console.error("Les données dans localStorage ne sont pas un objet valide.");
+                return {}; // Retourne un objet vide en cas d'erreur
+            }
+        } catch (error) {
+            console.error("Erreur lors du parsing des données depuis localStorage:", error);
+            return {}; // Retourne un objet vide si une erreur se produit
+        }
+    } else {
+        console.log("Aucune donnée trouvée dans localStorage.");
+        return {}; // Retourne un objet vide si aucune donnée n'est trouvée
+    }
+}
+
+// Fonction pour trier les personnages selon l'action
+function getSortedRankings(action, counters) {
+    console.log("Données des compteurs pour le tri:", counters);
+    
+    // Vérification que 'counters' est un objet
+    if (typeof counters !== 'object' || counters === null) {
+        console.error("Les données des compteurs sont invalides.");
+        return []; // Retourne un tableau vide si les données sont invalides
+    }
+
+    return Object.entries(counters) // Convertir l'objet en tableau [clé, valeur]
+        .map(([image, scores]) => ({
+            image,
+            name: scores.name,  // Récupérer le nom
+            origin: scores.origin,  // Récupérer l'origine
+            [action]: scores[action],  // Récupérer le score de l'action
+        }))
+        .sort((a, b) => b[action] - a[action]);  // Trier par score décroissant
+}
+
+// Test pour charger les compteurs et trier par action
+const counters = loadCountersFromLocalStorage();
+const sortedByKiss = getSortedRankings("kiss", counters);
+//console.log("Classement par Kiss:", sortedByKiss);
+
+
+// Créer le classement pour chaque action
+// Fonction pour trier les classements selon l'action (kiss, marry, kill)
+function getSortedRankings(action, counters) {
+    return Object.entries(counters)
+        .map(([image, scores]) => ({
+            image,
+            name: scores.name,
+            origin: scores.origin,
+            [action]: scores[action],
+        }))
+        .sort((a, b) => b[action] - a[action]); // Tri des personnages par action (du plus grand au plus petit)
+}
+
+let currentPodiumIndex = 0; // 0 = Kiss, 1 = Marry, 2 = Kill
+
+// Tableau des classements pour chaque action
+let podiums = [];
+
+// Fonction pour afficher le podium actuel
+
+// Fonction de navigation entre les podiums
+function changePodium(direction) {
+    // Met à jour l'index du podium, avec un cycle (0, 1, 2)
+    currentPodiumIndex = (currentPodiumIndex + direction + podiums.length) % podiums.length;
+    showCurrentPodium();
+}
+
+
+// Afficher les podiums des classements dans l'HTML
+function displayRankings() {
+    const counters = loadCountersFromLocalStorage();
+
+    // Stocker chaque classement dans un tableau de podiums
+    podiums = [
+        getSortedRankings('kiss', counters),
+        getSortedRankings('marry', counters),
+        getSortedRankings('kill', counters)
+    ];
+
+    showCurrentPodium(); // Affiche le premier podium par défaut (kiss)
+}
+
+
+
+// Mettre à jour les podiums avec les informations triées
+function updatePodiumDisplay(podium, action) {
+    // Met à jour le titre du podium en fonction de l'action
+    const podiumTitle = document.getElementById("podium-title");
+    const actionTitles = {
+        kiss: "Top 3 des plus embrassés 💋",
+        marry: "Top 3 des plus mariés 💍",
+        kill: "Top 3 des plus tués 🔪"
+    };
+    podiumTitle.textContent = actionTitles[action];
+
+    // Vérifie que le podium contient bien un top 3
+    if (podium.length >= 3) {
+        // Met à jour chaque podium avec les images, noms, origines, et scores selon l'action sélectionnée
+        document.getElementById("img-1").src = podium[1].image;
+        document.getElementById("name-1").textContent = podium[1].name;
+        document.getElementById("source-1").textContent = podium[1].origin;
+        document.getElementById("score-1").textContent = `${podium[1][action] || 0} fois`;
+
+        document.getElementById("img-2").src = podium[0].image;
+        document.getElementById("name-2").textContent = podium[0].name;
+        document.getElementById("source-2").textContent = podium[0].origin;
+        document.getElementById("score-2").textContent = `${podium[0][action] || 0} fois`;
+
+        document.getElementById("img-3").src = podium[2].image;
+        document.getElementById("name-3").textContent = podium[2].name;
+        document.getElementById("source-3").textContent = podium[2].origin;
+        document.getElementById("score-3").textContent = `${podium[2][action] || 0} fois`;
+    }
+}
+
+function showCurrentPodium() {
+    // Récupère les podiums pour chaque action à partir du localStorage
+    const podiums = {
+        kiss: getSortedRankings('kiss', loadCountersFromLocalStorage()),
+        marry: getSortedRankings('marry', loadCountersFromLocalStorage()),
+        kill: getSortedRankings('kill', loadCountersFromLocalStorage())
+    };
+
+    // Récupère l'action courante basée sur l'index
+    const actions = ["kiss", "marry", "kill"];
+    const action = actions[currentPodiumIndex];
+
+    // Appelle la fonction d'affichage avec le podium correspondant
+    updatePodiumDisplay(podiums[action], action);
+}
+
+
+
+// Appeler cette fonction pour afficher les podiums à chaque mise à jour
+displayRankings();
+
+// Sauvegarder les compteurs dans localStorage
+function saveCounters() {
+    const countersData = gens.reduce((acc, person) => {
+        acc[person.image] = {
+            name: person.name,
+            origin: person.origin,
+            kiss: person.kiss,
+            marry: person.marry,
+            kill: person.kill
+        };
+        return acc;
+    }, {});
+    localStorage.setItem(localStorageKey, JSON.stringify(countersData));
+    //console.log("Compteurs sauvegardés dans le localStorage :", countersData);
+}
+
+
+//########################
+function updateCountersByImage() {
+    document.querySelectorAll('.person-card').forEach((card) => {
+        const imageSrc = card.querySelector('img').src; // Utiliser l'image pour identifier le personnage
+        const selectedIcon = card.querySelector('.selected-icon');
+
+        if (selectedIcon) {
+            const iconContent = selectedIcon.textContent.trim(); // Récupère l'icône sélectionnée
+
+            // Trouver le personnage correspondant par l'image
+            const person = gens.find(p => p.image === imageSrc);
+
+            if (person) {
+                // Incrémente le compteur correspondant en fonction de l'icône choisie
+                if (iconContent === '💋') {
+                    person.kiss++;
+                } else if (iconContent === '💍') {
+                    person.marry++;
+                } else if (iconContent === '🔪') {
+                    person.kill++;
+                }
+            }
+        }
+    });
+    // Sauvegarder les compteurs dans le localStorage après chaque mise à jour
+    saveCounters();
+}
+
+
+
+function validateChoices() {
+    let allChosen = true; // Vérifie si tous les personnages ont une icône sélectionnée
+    let chosenIcons = []; // Liste pour stocker les icônes choisies
+
+    // Variable pour savoir si on doit afficher l'alerte ou non
+    let errorOccurred = false;
+
+    // Parcours tous les personnages
+    document.querySelectorAll('.person-card').forEach((card, index) => {
+        const selectedIcon = card.querySelector('.selected-icon'); // Trouve l'icône sélectionnée
+        const personId = card.dataset.id; // Utilise l'ID unique du personnage
+        
+        if (selectedIcon) {
+            const iconContent = selectedIcon.textContent.trim(); // Récupère l'emoji
+
+            // Vérifie si cette icône a déjà été choisie
+            if (chosenIcons.includes(iconContent)) {
+                if (!errorOccurred) {
+                    alert("Erreur : Vous avez sélectionné plusieurs fois la même icône.");
+                    errorOccurred = true; // Marque qu'une erreur a eu lieu pour éviter d'afficher plusieurs alertes
+                }
+                return; // Arrête l'exécution ici si un doublon est détecté
+            } else {
+                chosenIcons.push(iconContent); // Ajoute l'icône choisie à la liste
+            }
+        } else {
+            allChosen = false; // Si un personnage n'a pas de choix
+        }
+    });
+
+    // Vérifie si tous les personnages ont une action
+    if (!allChosen) {
+        if (!errorOccurred) {
+            alert("Erreur : Tous les personnages doivent avoir une action.");
+            errorOccurred = true; // Marque qu'une erreur a eu lieu
+        }
+        return; // Arrête l'exécution ici si un personnage n'a pas de choix
+    }
+
+    // Si tout est bon, on affiche un message de validation
+    if (!errorOccurred) {
+        console.log("Validation réussie !");
+        console.log("Icônes choisies :", chosenIcons);
+        // Incrémenter les compteurs en fonction des icônes choisies et de l'index
+       // Met à jour les compteurs en fonction des icônes choisies
+       // Met à jour les compteurs en fonction des icônes choisies
+        // Mise à jour des compteurs après validation
+        updateCountersByImage();
+
+
+        // Afficher les compteurs mis à jour dans la console
+        console.log(gens);
+        saveCounters(gens.reduce((acc, p) => {
+            acc[p.image] = { marry: p.marry, kiss: p.kiss, kill: p.kill };
+            return acc;
+        }, {})); 
+        displayRankings(); // Sauvegarde dans le localStorage
+        generate();
+        // Ajoute ici toute action supplémentaire après la validation
+    }
+}
