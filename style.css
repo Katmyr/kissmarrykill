@@ -69,24 +69,30 @@ body {
 
 .randoms img {
     width: 100%;
-    aspect-ratio: 1;
+    height: 100%;
     object-fit: cover;
-    border-radius: 10px;
-    transition: all ease-in-out .2s;
-    z-index: 10;
-}
-
-.randoms img:hover {
-    transform: scale(1.05);
 }
 
 .randoms div {
+    align-items: center;
+    max-height: 100%;
+}
+
+.person {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 20%;
     height: 20rem;
     max-height: 100%;
+}
+
+.person-card {
+    position: relative; /* La carte est le conteneur pour l'overlay */
+    aspect-ratio: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all ease-in-out .2s;
 }
 
 .container1 {
@@ -147,51 +153,65 @@ body {
     opacity: .5;
 }
 
-button {
+#bottomleft {
     position: fixed;
     bottom: 0;
-    width: 100%;
-    left: 0;
+    width: 50%;
+    background-color: transparent;
+    border-bottom: none;
+    border-right: solid 1px var(--main-color);
+    border-top: solid 2px var(--main-color);
+    border-left: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 1rem;
+    outline: 0;
+    transition: all ease-in .2s;
+}
+
+#bottomright {
+    position: fixed;
+    bottom: 0;
+    width: 50%;
     right: 0;
     background-color: transparent;
     border-bottom: none;
     border-right: none;
     border-top: solid 2px var(--main-color);
-    border-left: none;
+    border-left: solid 1px var(--main-color);
     color: #ffffff;
     cursor: pointer;
-    padding: .6rem;
+    padding: 1rem;
     outline: 0;
     transition: all ease-in .2s;
 }
 
-button:hover {
+#bottomleft:hover,#bottomright:hover {
     box-shadow: 0px 0px 20px var(--main-color);
-    transform: scale(1.05);
+}
+
+#menu {
+    font-size: 40px;
 }
 
 .menu {
     background-color: transparent;
-    border-bottom: solid 2px var(--main-color);
-    border-right: solid 2px var(--main-color);
-    border-top: none;
-    border-left: none;
+    border : none;
     cursor: pointer;
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
     position: fixed;
-    top: 0px;
-    border-bottom-right-radius: 130px;
-    font-size: 25px;
+    color: white;
+    top: 30px;
+    left: 30px;
+    border-radius: 100%;
+    transition: all ease-in .2s;
     margin: 0px;
     margin-right: 100px;
 }
 
 .menu:hover {
     transform: scale(1.05);
-    border-bottom: solid 2px var(--main-color);
-    border-right: solid 2px var(--main-color);
-    box-shadow: 0px 0px 20px var(--main-color);
 }
 
 .banniere {
@@ -212,7 +232,7 @@ h2 {
     text-align: center;
     color: var(--hover-color);
     right: 55px;
-    top: 35px;
+    top: 50px;
     position: fixed;
     font-weight: 400;
     font-style: normal;
@@ -221,6 +241,285 @@ h2 {
 header {
     text-align: center;
 }
+
+.logo {
+    margin-top: 20px;
+    width: 30%;
+    text-align: center;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: unset;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4); /* Assombrit l'image */
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    visibility: hidden; /* Cache l'overlay */
+    z-index: 10; /* Superpose l'overlay sur l'image */
+}
+
+.person-card:hover .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.person-card:hover {
+    transform: scale(1.05);
+}
+
+.action {
+    position: unset;
+    bottom: unset;
+    width: unset;
+    left: unset;
+    right: unset;
+    background-color: unset;
+    border-bottom: none;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    background-color: rgba(19, 19, 19, 0.3);
+    backdrop-filter: blur(5px);
+    padding: 0;
+    outline: unset;
+    border: none;
+    border-radius: 50%; /* Des bords arrondis pour rendre les boutons ronds */
+    font-size: 28px; /* Augmenter la taille des icônes pour qu'elles soient plus visibles */
+    width: 50px;
+    height: 50px;
+}
+
+.action:hover {
+    transform: scale(1.3); /* Agrandit l'icône sélectionnée */
+    box-shadow: none
+}
+
+/* Icône sélectionnée positionnée dans le coin inférieur gauche */
+.selected-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 30px; /* Taille de l'icône */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(19, 19, 19, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 50%; /* Bord arrondi */
+    padding: 0;
+    z-index: 10; /* Assurer que l'icône est bien au-dessus de l'image */
+}
+
+.help {
+    width: 40px;
+    height: 40px;
+    margin: 50px;
+    background-color: rgba(255, 255, 255, 0.388);
+    opacity: 0.5;
+    font-size: 20px;
+    right: 12%;
+    top: 0;
+    position: absolute;
+    border: none;
+    border-radius: 50%;
+    transition: 200ms ease-in-out;
+}
+
+.help:hover {
+    opacity: 1;
+    transform: scale(1.0);
+    cursor: pointer;
+}
+
+.close-button {
+    width: unset;
+    height: unset;
+    font-size: 30px;
+    margin: 0px;
+    background-color: unset;
+    color: rgb(255, 255, 255);
+    opacity: 0.5;
+    border: none;
+    font-weight: bold;
+}
+
+.close-button:hover {
+    transform: scale(1);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 250ms ease-in-out;
+    background-color: #1e1e1ec5;
+    border: solid 1px rgb(68, 68, 68);
+    backdrop-filter: blur(4px);
+    border-radius: 20px;
+    z-index: 15;
+    width: 550px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 2px rgb(68, 68, 68);
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    transition: 200ms ease-in-out;
+    pointer-events: none;
+    z-index: 12;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.material-icons {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  color: white;
+  font-size: 26px;
+}
+
+.podium-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.podium {
+    width: 120px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.podium-first {
+    background-color: #c9ab00;
+    height: 220px;
+}
+
+.podium-second {
+    background-color: #c0c0c0;
+    height: 180px;
+}
+
+.podium-third {
+    background-color: #cd7f32;
+    height: 140px;
+}
+
+.podium-rank {
+    font-size: 2rem;
+    margin-top: 15px; /* Ajuste l'espacement sous l'image */
+}
+
+.podium-person {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.podium-score {
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+/* Style de l'image du personnage */
+.podium-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    object-fit: cover;
+    top: -45px; /* Place l'image au-dessus du podium */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.medal {
+    position: absolute;
+    top: 35px; /* Ajuste cette valeur pour placer la médaille sur la poitrine */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    pointer-events: none; /* Pour éviter que l'emoji ne bloque les clics sur l'image */
+}
+
+.carousel-arrow {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.carousel-arrow.left {
+    left: 0;
+    transform: translateY(-50%);
+    background: transparent;
+}
+
+.carousel-arrow.right {
+    right: 0;
+    transform: translateY(-50%);
+    background: transparent;
+}
+
 
 @media (max-width: 768px) {
     .randoms h3 {
@@ -236,7 +535,7 @@ header {
         position :fixed;
         font-size: 18px;
     }
-    button {
+    footer {
         height: 7%;
         font-size: 20px;
     }
@@ -244,6 +543,8 @@ header {
         width : 100px;
         height: 100px;
         font-size: 20px;
+        top: 0px;
+        left: 0px;
     }
     .randoms {
         flex-direction: column;
@@ -251,12 +552,15 @@ header {
     }
 
     .randoms img {
-        aspect-ratio: 2/1;
-        height: 80%;
         object-position: center 30%;
+        height: 99%;
     }
 
-    .randoms div {
+    .person-card {
+        aspect-ratio: 2/1;
+    }
+
+    .person {
         width: 60%;
         height: unset;
         max-height: 100%;
@@ -266,10 +570,9 @@ header {
         min-width: unset;
         min-height: unset;  
     }
-}
 
-.logo {
-    margin-top: 20px;
-    width: 30%;
-    text-align: center;
+    .help {
+        right: 0;
+        margin: 20px;
+    }
 }
