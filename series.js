@@ -9,16 +9,16 @@ let gens = [
     ["Sheldon", "The Big Bang Theory", "https://i.pinimg.com/564x/f9/4f/48/f94f48bb4dd3341465a161db0c80bfd1.jpg"],
     ["Penny", "The Big Bang Theory", "https://i.pinimg.com/564x/a9/1b/14/a91b1421779953f9852842ab6b605dca.jpg"],
     ["Leonard", "The Big Bang Theory", "https://i.pinimg.com/564x/a5/15/71/a515710f2fb23bb37641c0e2b2410ddd.jpg"],
-    ["Howard", "The Big Bang Theory", "https://i.pinimg.com/564x/5a/2e/9b/5a2e9b75768728bf93d02663e4540c88.jpg"],
+    ["Howard", "The Big Bang Theory", "https://i.pinimg.com/564x/15/5d/38/155d38a7ce01c22e77dd689eee1e532f.jpg"],
     ["Rajesh", "The Big Bang Theory", "https://i.pinimg.com/236x/d7/af/58/d7af58b43806a45bb03c7313a14162d8.jpg"],
-    ["Amy", "The Big Bang Theory", "https://i.pinimg.com/564x/5b/03/6c/5b036c15161b07b381d4b4d7d5d2f09b.jpg"],
-    ["Bernadette", "The Big Bang Theory", "https://i.pinimg.com/564x/3c/27/e2/3c27e218c10e97e372573a500409da00.jpg"],
+    ["Amy", "The Big Bang Theory", "https://i.pinimg.com/736x/5c/cd/35/5ccd359631f7b5126182d74563426b4b.jpg"],
+    ["Bernadette", "The Big Bang Theory", "https://i.pinimg.com/564x/33/9a/cc/339acc6a471163d8e84ded637ca145d0.jpg"],
     ["10th Doctor", "Doctor Who", "https://i.pinimg.com/564x/6e/f7/ac/6ef7acea823be296b643d72dd2a78afd.jpg"],
     ["11th Doctor", "Doctor Who", "https://i.pinimg.com/564x/39/91/eb/3991eb326d0d1f4991020fffeeb0d236.jpg"],
     ["Sherlock", "Sherlock", "https://i.pinimg.com/564x/71/59/93/7159933cfaf2c39e56418a80cd8d7f33.jpg"],
     ["Watson", "Sherlock", "https://i.pinimg.com/564x/de/68/2e/de682e6d2ebd5297028012ca353dedf4.jpg"],
     ["Moriarty", "Sherlock", "https://i.pinimg.com/564x/2e/b2/5f/2eb25f95af3403b2537d1c46bb5ff299.jpg"],
-    ["Lucifer", "Lucifer", "https://i.pinimg.com/564x/20/a6/73/20a673e10dcad3f9409616202be48779.jpg"],
+    ["Lucifer", "Lucifer", "https://i.pinimg.com/564x/b7/88/8f/b7888f6a5f308ff08b76261e76595613.jpg"],
     ["Klaus", "Umbrella Academy", "https://i.pinimg.com/564x/2c/8c/17/2c8c1793b311e879b2750778ad9986a1.jpg"],
     ["Five", "Umbrella Academy", "https://i.pinimg.com/564x/51/ee/2a/51ee2a5dc6ac8b9fc8a17d10b6a1b1ab.jpg"],
     ["Viktor", "Umbrella Academy", "https://i.pinimg.com/564x/24/bb/c4/24bbc49c1f731b46422d9cbd6847ec7b.jpg"],
@@ -26,7 +26,7 @@ let gens = [
     ["Ben", "Umbrella Academy", "https://i.pinimg.com/564x/43/34/30/433430fdff04686f6d394b8b786f1a6c.jpg"],
     ["Crowley", "Good Omens", "https://i.pinimg.com/564x/47/06/c4/4706c460f4c544962e48e747dbaaaf55.jpg"],
     ["Aziraphale", "Good Omens", "https://i.pinimg.com/564x/4f/34/73/4f3473f83318c9baa5b4ab64561bc01b.jpg"],
-    ["Norbert", "Les Animaux Fantastiques", "https://i.pinimg.com/564x/70/7f/fb/707ffbf127672a2d9208851418bd164c.jpg"],
+    ["Norbert", "Les Animaux Fantastiques", "https://i.pinimg.com/736x/d1/17/bc/d117bc3ad418506b66802d23717c593d.jpg"],
     ["Tina", "Les Animaux Fantastiques", "https://i.pinimg.com/564x/95/fa/dc/95fadc73baf33a031e349413a5dc0d69.jpg"],
     ["Queenie", "Les Animaux Fantastiques", "https://i.pinimg.com/564x/04/d1/b2/04d1b21b02c1f6d7baa214bf22882b58.jpg"],
     ["Rachel", "Friends", "https://i.pinimg.com/564x/26/f6/ef/26f6efba3dbfe342caa8a19c00efb263.jpg"],
@@ -63,23 +63,23 @@ let gens = [
     ["Nancy", "Stranger Things", "https://i.pinimg.com/564x/a4/3c/ee/a43ceee7c9f761985fe6acb670b0b844.jpg"],
     ["Robin", "Stranger Things", "https://i.pinimg.com/564x/68/d4/fb/68d4fb7728a66560d3222f36ed79c249.jpg"],
     ["Will", "Stranger Things", "https://i.pinimg.com/564x/45/57/e3/4557e32924b1a16748e6197f44c5573a.jpg"],
-    ["Lucas", "Stranger Things", "https://i.pinimg.com/564x/63/cf/32/63cf3283de4575033c2bd6a2e4581941.jpg"],
+    ["Lucas", "Stranger Things", "https://i.pinimg.com/564x/06/48/d3/0648d38a2da5a196994acdb5101c996a.jpg"],
     ["Legolas", "Lord of the Rings", "https://i.pinimg.com/564x/56/cc/a3/56cca3ae2d42bf6352e00bd7b9c24e83.jpg"],
     ["Frodon", "Lord of the Rings", "https://i.pinimg.com/564x/e9/c0/85/e9c0853068e60cb73c33b2d283251c3e.jpg"],
     ["Joker", "Joker", "https://i.pinimg.com/564x/62/c3/cf/62c3cffb22a858cd3a3c1ae5f0c51f44.jpg"],
     ["Nairobi", "La Casa De Papel", "https://i.pinimg.com/564x/a2/c0/6d/a2c06de4937e55ca00134032031bc37e.jpg"],
-    ["Spider-Man", "Marvel", "https://i.pinimg.com/564x/aa/c7/83/aac783715a692960dbcb277f18d4dcdd.jpg"],
+    ["Spider-Man", "Marvel", "https://i.pinimg.com/564x/9d/1d/89/9d1d8921bf04af2df70af7f445ea9df2.jpg"],
     ["Spider-Man", "The Amazing Spider-Man", "https://i.pinimg.com/564x/a9/28/0d/a9280dd1b79624d79fa79146d2baee96.jpg"],
     ["Spider-Man", "Spider-Man", "https://i.pinimg.com/564x/b8/89/f0/b889f01394b2f26fa86819b7fee941a1.jpg"],
-    ["Dr Strange", "Marvel", "https://i.pinimg.com/564x/4a/ce/be/4acebe202f499250b86d865677e0f6c3.jpg"],
-    ["Captain America", "Marvel", "https://i.pinimg.com/564x/31/6e/24/316e24ad6b255903f6f8ceece5449d23.jpg"],
-    ["Black Widow", "Marvel", "https://i.pinimg.com/564x/0f/be/fc/0fbefcf44db805d99a99e6cca35d1346.jpg"],
-    ["Gamora", "Les Gardiens de la Galaxie", "https://i.pinimg.com/564x/88/72/4a/88724a0c03bf7ba0c5e6781e884294df.jpg"],
-    ["Nebula", "Les Gardiens de la Galaxie", "https://i.pinimg.com/564x/5a/a6/ee/5aa6ee5dc9bed2ba408ad89bac1dc94b.jpg"],
-    ["Black Panther", "Marvel", "https://i.pinimg.com/564x/93/cb/8e/93cb8ef9e8f91fd8a49a714895b332b5.jpg"],
-    ["Star-Lord", "Les Gardiens de la Galaxie", "https://i.pinimg.com/564x/25/be/87/25be87dccb167017017b6233b7890c0e.jpg"],
-    ["Iron-Man", "Marvel", "https://i.pinimg.com/564x/6d/2b/c8/6d2bc84a483411b0ff92683e6f310d62.jpg"],
-    ["Thor", "Marvel", "https://i.pinimg.com/564x/2d/f9/33/2df9337d376f0bae6205f6caf703a4b9.jpg"],
+    ["Dr Strange", "Marvel", "https://i.pinimg.com/564x/c8/16/a7/c816a7208f6845dc42b7f5662f54adad.jpg"],
+    ["Captain America", "Marvel", "https://i.pinimg.com/564x/36/01/b3/3601b349f9f4b95528d7a85104c5ff15.jpg"],
+    ["Black Widow", "Marvel", "https://i.pinimg.com/564x/55/25/09/5525092e8443f71099518aa94e221260.jpg"],
+    ["Gamora", "Les Gardiens de la Galaxie", "https://i.pinimg.com/736x/99/3f/83/993f8333916d742d9f4d59f2b13668f3.jpg"],
+    ["Nebula", "Les Gardiens de la Galaxie", "https://i.pinimg.com/564x/7f/7b/1c/7f7b1c32e66cb95b825ae48f4649e9f7.jpg"],
+    ["Black Panther", "Marvel", "https://i.pinimg.com/564x/cf/1c/ee/cf1cee383124c78f996a4008e19c6901.jpg"],
+    ["Star-Lord", "Les Gardiens de la Galaxie", "https://i.pinimg.com/564x/8a/c8/17/8ac817e6d1208c23eedf590896dcfbcd.jpg"],
+    ["Iron-Man", "Marvel", "https://i.pinimg.com/564x/c9/a0/4b/c9a04baa9ef3be6ebca4e20b76e4e7b3.jpg"],
+    ["Thor", "Marvel", "https://i.pinimg.com/564x/a3/7c/f8/a37cf83fa7248799aae39819e26522ba.jpg"],
     ["Rose", "Titanic", "https://i.pinimg.com/564x/31/f7/89/31f789af9ddb3cc4eb80414e2f83d8ec.jpg"],
     ["Jack", "Titanic", "https://i.pinimg.com/564x/3b/b2/f7/3bb2f7a3d39611f2b71d49a1109afdaa.jpg"],
     ["Jack Sparrow", "Pirates des Caraïbes", "https://i.pinimg.com/564x/c5/6a/f2/c56af2ca4db9460d814ebb3bedad4dfa.jpg"],
@@ -87,24 +87,24 @@ let gens = [
     ["William", "Pirates des Caraïbes", "https://i.pinimg.com/564x/9d/cf/ac/9dcfacd2f38bb566357fb04e5dc0e35b.jpg"],
     ["Newt", "Le Labyrinthe", "https://i.pinimg.com/564x/af/f1/5d/aff15d656e2f4c04bbb0c259577c5801.jpg"],
     ["Thomas", "Le Labyrinthe", "https://i.pinimg.com/564x/46/5e/2b/465e2b03ad0800d5f5a2c31c32a7685f.jpg"],
-    ["Teresa", "Le Labyrinthe", "https://i.pinimg.com/564x/69/64/eb/6964ebde4980ad8f2a2a7288ed402711.jpg"],
+    ["Teresa", "Le Labyrinthe", "https://i.pinimg.com/564x/3c/f3/7d/3cf37d75bd13c6736d3bde17af40b7ef.jpg"],
     ["Negan", "The Walking Dead", "https://i.pinimg.com/564x/0d/38/b2/0d38b2bd575ff7986a4be5b86710b842.jpg"],
     ["Rick", "The Walking Dead", "https://i.pinimg.com/564x/05/c1/c6/05c1c6c94a3a6ef35635b59ff35a54c3.jpg"],
     ["Maeve", "Sex Education", "https://i.pinimg.com/564x/c1/47/81/c1478175c9921cc6b279b2af7172679c.jpg"],
     ["Otis", "Sex Education", "https://i.pinimg.com/564x/07/72/75/077275a87e1db1f94e2b3b39f5d79849.jpg"],
     ["Miss Perigrine", "Miss Perigrine", "https://i.pinimg.com/564x/f5/f6/91/f5f69194faf57a541a3765cb2ce130f5.jpg"],
     ["Jo March", "Little Women", "https://i.pinimg.com/564x/00/31/f6/0031f60b65fae9f314816b562bca2711.jpg"],
-    ["Meg March", "Little Women", "https://i.pinimg.com/564x/2c/55/c4/2c55c485d4c62c8441f23b63cdbe4d06.jpg"],
+    ["Meg March", "Little Women", "https://i.pinimg.com/564x/f5/db/46/f5db46cbe6debb792edfd26f3ce5df77.jpg"],
     ["Amy March", "Little Women", "https://i.pinimg.com/564x/51/25/94/512594b123c57c8f96662bd19e5f3bc5.jpg"],
     ["Théodore Laurence", "Little Women", "https://i.pinimg.com/564x/22/21/84/222184674a6340c9b801c29b4acfd04a.jpg"],
     ["Ginny", "Harry Potter", "https://i.pinimg.com/564x/61/bd/3b/61bd3b077ea9b77fe1f9e1654dda3a79.jpg"],
     ["Forrest Gump",  "Forrest Gump", "https://i.pinimg.com/564x/6c/52/c1/6c52c1eb12252773905231cac79097a4.jpg"],
     ["Cat", "Victorious", "https://i.pinimg.com/564x/bc/af/82/bcaf8268468768f7a27cddcfa3705c5e.jpg"],
-    ["Jade", "Victorious", "https://i.pinimg.com/564x/86/42/a1/8642a1df006bd616c88d2226a8c2e5a0.jpg"],
+    ["Jade", "Victorious", "https://i.pinimg.com/564x/9f/52/ea/9f52ead97f036e265769ce3332ecacbb.jpg"],
     ["Beck", "Victorious", "https://i.pinimg.com/564x/4a/96/7d/4a967dfb4b3a5884d4f8b4a3cb768217.jpg"],
     ["Carly", "ICarly", "https://i.pinimg.com/564x/8b/09/a9/8b09a9f492adfa191863ab1ddbe02bf9.jpg"],
     ["Sam", "ICarly", "https://i.pinimg.com/564x/de/41/6f/de416fc10e2f2ad2affb8eca6e43e683.jpg"],
-    ["Freddie", "ICarly", "https://i.pinimg.com/564x/3c/a5/81/3ca58126173a0232ac184d1a5ecdea64.jpg"],
+    ["Freddie", "ICarly", "https://i.pinimg.com/564x/66/15/fa/6615fa46a74baa8267a5a4269ecb576b.jpg"],
     ["Jessie", "Jessie", "https://i.pinimg.com/564x/c1/e7/9d/c1e79d0f2974ecf2625cf34c08a176ac.jpg"],
     ["Enola Holmes", "Enola Holmes", "https://i.pinimg.com/564x/70/8c/1b/708c1bed0fb2397e4bf81f8a4cc1afec.jpg"],
     ["Mr Bean", "Mr Bean", "https://i.pinimg.com/564x/72/f3/ab/72f3ab641148d227d799570de7547777.jpg"],
@@ -121,7 +121,7 @@ let gens = [
     ["Nick", "Heartstopper", "https://i.pinimg.com/564x/40/7a/b9/407ab9bf0dfbabe95fd5b0faffcbdfe0.jpg"],
     ["Charlie", "Heartstopper", "https://i.pinimg.com/564x/09/72/ff/0972ff1295ababe5ebadb9edbd14d367.jpg"],
     ["Elle", "Heartstopper", "https://i.pinimg.com/564x/22/60/d0/2260d0e1cf957d9c2a967d8f335ac268.jpg"],
-    ["Regina", "Mean Girls", "https://i.pinimg.com/564x/9a/8d/77/9a8d77d9f3e1177328fe7a3beea356eb.jpg"],
+    ["Regina", "Mean Girls", "https://i.pinimg.com/736x/d3/8e/55/d38e5572729c5bbabb1a927773d8902b.jpg"],
     ["Cady", "Mean Girls", "https://i.pinimg.com/564x/f0/df/11/f0df1137139118d594c6a6b1d93d2e74.jpg"],
     ["Karen", "Mean Girls", "https://i.pinimg.com/564x/8b/00/7a/8b007a421020d9ba06b5b6568a7a8115.jpg"],
     ["Gretchen", "Mean Girls", "https://i.pinimg.com/564x/98/98/88/989888d4394e1d0041ffdf820f342fa4.jpg"],
@@ -148,14 +148,14 @@ let gens = [
     ["Blaine", "Glee", "https://i.pinimg.com/564x/78/36/4d/78364dc33e5650a92f0a8bf7717926aa.jpg"],
     ["Brittany", "Glee", "https://i.pinimg.com/564x/e7/64/e3/e764e32af2cf7dd860f68e64c283ff54.jpg"],
     ["Mercedes", "Glee", "https://i.pinimg.com/564x/39/a5/2c/39a52c8c9dd5d8a64576fe21443239c0.jpg"],
-    ["Quinn", "Glee", "https://i.pinimg.com/564x/c8/3c/8f/c83c8f3870e8cc3b1fec4e1abca658e8.jpg"],
+    ["Quinn", "Glee", "https://i.pinimg.com/736x/b4/b5/9d/b4b59d2cd056f7e0ea6985e86306b022.jpg"],
     ["Sue", "Glee", "https://i.pinimg.com/564x/66/ac/46/66ac46f59170bc3dee31f1389174ecf7.jpg"],
     ["Indiana Jones", "Indiana Jones", "https://i.pinimg.com/564x/7b/ef/db/7befdb5904516de4d7d82d3c4f74938f.jpg"],
     ["Emmy", "Brooklyn 99", "https://i.pinimg.com/564x/61/f6/61/61f661c9b2941f0c0f115220f8cf5623.jpg"],
     ["Jake", "Brooklyn 99", "https://i.pinimg.com/564x/51/07/03/510703fc4870179c1311a01a642187a1.jpg"],
     ["Rosa", "Brooklyn 99", "https://i.pinimg.com/564x/82/77/16/827716bac369f914cadaf7560c0b29b6.jpg"],
     ["Jeff", "Community", "https://i.pinimg.com/564x/b9/b9/81/b9b9812abe61f1e5da92aaa807d66fe9.jpg"],
-    ["Britta", "Community", "https://i.pinimg.com/564x/9f/78/06/9f78061adcb02620846687d193965adb.jpg"],
+    ["Britta", "Community", "https://i.pinimg.com/564x/84/cb/c6/84cbc66bbbd2ff8652be8aad4a602e21.jpg"],
     ["Annie", "Community", "https://i.pinimg.com/564x/68/0e/b8/680eb8686d550c06630730b4aa5a7aeb.jpg"],
     ["Troy", "Community", "https://i.pinimg.com/564x/8b/9a/ec/8b9aec145bf635d22731e6421ecbb6ad.jpg"],
     ["Abed", "Community", "https://i.pinimg.com/564x/48/f0/48/48f04822aa9d6a23b19fb8128768c0e8.jpg"],
@@ -249,26 +249,325 @@ let gens = [
     ["Harry", "Love Actually", "https://i.pinimg.com/564x/2f/a9/4e/2fa94e54de6c6bc5cbd14d92205f97cf.jpg"],
 ]
 
+// Définir la clé du localStorage selon la catégorie
+const localStorageKey = `countersData_series`;
+
+
+gens = gens.map(person => ({
+    name: person[0],
+    origin: person[1],
+    image: person[2],
+    kiss: 0,
+    marry: 0,
+    kill: 0
+}));
+
+
+console.log(gens); // Affiche la nouvelle structure avec les compteurs
+
+
 function generate() {
     let person1 = gens[Math.floor(Math.random() * gens.length)];
     let person2 = gens[Math.floor(Math.random() * gens.length)];
     let person3 = gens[Math.floor(Math.random() * gens.length)];
 
-    if (person1[0] == person2[0] || person1[0] == person3[0] || person2[0] == person3[0]) {
+    if (person1.image == person2.image || person1.image == person3.image || person2.image == person3.image) {
         setTimeout(() => {
             generate();
         }, 100);
     } else {
-        document.getElementById('person1-text').innerText = person1[0];
-        document.getElementById('person1-desc').innerText = person1[1];
-        document.getElementById('person1-image').src = person1[2];
-        document.getElementById('person2-text').innerText = person2[0];
-        document.getElementById('person2-desc').innerText = person2[1];
-        document.getElementById('person2-image').src = person2[2];
-        document.getElementById('person3-text').innerText = person3[0];
-        document.getElementById('person3-desc').innerText = person3[1];
-        document.getElementById('person3-image').src = person3[2];
+        document.getElementById('person1-text').innerText = person1.name;
+        document.getElementById('person1-desc').innerText = person1.origin;
+        document.getElementById('person1-image').src = person1.image;
+
+        document.getElementById('person2-text').innerText = person2.name;
+        document.getElementById('person2-desc').innerText = person2.origin;
+        document.getElementById('person2-image').src = person2.image;
+
+
+        document.getElementById('person3-text').innerText = person3.name;
+        document.getElementById('person3-desc').innerText = person3.origin;
+        document.getElementById('person3-image').src = person3.image;
+
+    }
+
+    document.querySelectorAll('.selected-icon').forEach(icon => icon.remove());
+}
+
+generate()
+loadCounters()
+
+// Initialiser les compteurs ou charger depuis le localStorage
+function loadCounters() {
+    const data = localStorage.getItem(localStorageKey);
+    if (data) {
+        const counters = JSON.parse(data);
+        // Mettre à jour gens avec les données du localStorage
+        gens = gens.map(person => ({
+            ...person,
+            kiss: counters[person.image]?.kiss || 0,
+            marry: counters[person.image]?.marry || 0,
+            kill: counters[person.image]?.kill || 0,
+        }));
+        //console.log("Compteurs chargés depuis localStorage :", counters);
     }
 }
 
-generate();
+
+
+// Charger les compteurs depuis localStorage
+// Fonction pour charger les compteurs depuis localStorage
+function loadCountersFromLocalStorage() {
+    const data = localStorage.getItem(localStorageKey);
+    
+    if (data) {
+        try {
+            const counters = JSON.parse(data);
+            //console.log("Compteurs chargés depuis localStorage:", counters);
+            // Assurez-vous que counters est bien un objet
+            if (typeof counters === 'object' && counters !== null) {
+                return counters;
+            } else {
+                console.error("Les données dans localStorage ne sont pas un objet valide.");
+                return {}; // Retourne un objet vide en cas d'erreur
+            }
+        } catch (error) {
+            console.error("Erreur lors du parsing des données depuis localStorage:", error);
+            return {}; // Retourne un objet vide si une erreur se produit
+        }
+    } else {
+        console.log("Aucune donnée trouvée dans localStorage.");
+        return {}; // Retourne un objet vide si aucune donnée n'est trouvée
+    }
+}
+
+// Fonction pour trier les personnages selon l'action
+function getSortedRankings(action, counters) {
+    console.log("Données des compteurs pour le tri:", counters);
+    
+    // Vérification que 'counters' est un objet
+    if (typeof counters !== 'object' || counters === null) {
+        console.error("Les données des compteurs sont invalides.");
+        return []; // Retourne un tableau vide si les données sont invalides
+    }
+
+    return Object.entries(counters) // Convertir l'objet en tableau [clé, valeur]
+        .map(([image, scores]) => ({
+            image,
+            name: scores.name,  // Récupérer le nom
+            origin: scores.origin,  // Récupérer l'origine
+            [action]: scores[action],  // Récupérer le score de l'action
+        }))
+        .sort((a, b) => b[action] - a[action]);  // Trier par score décroissant
+}
+
+// Test pour charger les compteurs et trier par action
+const counters = loadCountersFromLocalStorage();
+const sortedByKiss = getSortedRankings("kiss", counters);
+//console.log("Classement par Kiss:", sortedByKiss);
+
+
+// Créer le classement pour chaque action
+// Fonction pour trier les classements selon l'action (kiss, marry, kill)
+function getSortedRankings(action, counters) {
+    return Object.entries(counters)
+        .map(([image, scores]) => ({
+            image,
+            name: scores.name,
+            origin: scores.origin,
+            [action]: scores[action],
+        }))
+        .sort((a, b) => b[action] - a[action]); // Tri des personnages par action (du plus grand au plus petit)
+}
+
+let currentPodiumIndex = 0; // 0 = Kiss, 1 = Marry, 2 = Kill
+
+// Tableau des classements pour chaque action
+let podiums = [];
+
+// Fonction pour afficher le podium actuel
+
+// Fonction de navigation entre les podiums
+function changePodium(direction) {
+    // Met à jour l'index du podium, avec un cycle (0, 1, 2)
+    currentPodiumIndex = (currentPodiumIndex + direction + podiums.length) % podiums.length;
+    showCurrentPodium();
+}
+
+
+// Afficher les podiums des classements dans l'HTML
+function displayRankings() {
+    const counters = loadCountersFromLocalStorage();
+
+    // Stocker chaque classement dans un tableau de podiums
+    podiums = [
+        getSortedRankings('kiss', counters),
+        getSortedRankings('marry', counters),
+        getSortedRankings('kill', counters)
+    ];
+
+    showCurrentPodium(); // Affiche le premier podium par défaut (kiss)
+}
+
+
+
+// Mettre à jour les podiums avec les informations triées
+function updatePodiumDisplay(podium, action) {
+    // Met à jour le titre du podium en fonction de l'action
+    const podiumTitle = document.getElementById("podium-title");
+    const actionTitles = {
+        kiss: "Top 3 des plus embrassés 💋",
+        marry: "Top 3 des plus mariés 💍",
+        kill: "Top 3 des plus tués 🔪"
+    };
+    podiumTitle.textContent = actionTitles[action];
+
+    // Vérifie que le podium contient bien un top 3
+    if (podium.length >= 3) {
+        // Met à jour chaque podium avec les images, noms, origines, et scores selon l'action sélectionnée
+        document.getElementById("img-1").src = podium[1].image;
+        document.getElementById("name-1").textContent = podium[1].name;
+        document.getElementById("source-1").textContent = podium[1].origin;
+        document.getElementById("score-1").textContent = `${podium[1][action] || 0} fois`;
+
+        document.getElementById("img-2").src = podium[0].image;
+        document.getElementById("name-2").textContent = podium[0].name;
+        document.getElementById("source-2").textContent = podium[0].origin;
+        document.getElementById("score-2").textContent = `${podium[0][action] || 0} fois`;
+
+        document.getElementById("img-3").src = podium[2].image;
+        document.getElementById("name-3").textContent = podium[2].name;
+        document.getElementById("source-3").textContent = podium[2].origin;
+        document.getElementById("score-3").textContent = `${podium[2][action] || 0} fois`;
+    }
+}
+
+function showCurrentPodium() {
+    // Récupère les podiums pour chaque action à partir du localStorage
+    const podiums = {
+        kiss: getSortedRankings('kiss', loadCountersFromLocalStorage()),
+        marry: getSortedRankings('marry', loadCountersFromLocalStorage()),
+        kill: getSortedRankings('kill', loadCountersFromLocalStorage())
+    };
+
+    // Récupère l'action courante basée sur l'index
+    const actions = ["kiss", "marry", "kill"];
+    const action = actions[currentPodiumIndex];
+
+    // Appelle la fonction d'affichage avec le podium correspondant
+    updatePodiumDisplay(podiums[action], action);
+}
+
+
+
+// Appeler cette fonction pour afficher les podiums à chaque mise à jour
+displayRankings();
+
+// Sauvegarder les compteurs dans localStorage
+function saveCounters() {
+    const countersData = gens.reduce((acc, person) => {
+        acc[person.image] = {
+            name: person.name,
+            origin: person.origin,
+            kiss: person.kiss,
+            marry: person.marry,
+            kill: person.kill
+        };
+        return acc;
+    }, {});
+    localStorage.setItem(localStorageKey, JSON.stringify(countersData));
+    //console.log("Compteurs sauvegardés dans le localStorage :", countersData);
+}
+
+
+//########################
+function updateCountersByImage() {
+    document.querySelectorAll('.person-card').forEach((card) => {
+        const imageSrc = card.querySelector('img').src; // Utiliser l'image pour identifier le personnage
+        const selectedIcon = card.querySelector('.selected-icon');
+
+        if (selectedIcon) {
+            const iconContent = selectedIcon.textContent.trim(); // Récupère l'icône sélectionnée
+
+            // Trouver le personnage correspondant par l'image
+            const person = gens.find(p => p.image === imageSrc);
+
+            if (person) {
+                // Incrémente le compteur correspondant en fonction de l'icône choisie
+                if (iconContent === '💋') {
+                    person.kiss++;
+                } else if (iconContent === '💍') {
+                    person.marry++;
+                } else if (iconContent === '🔪') {
+                    person.kill++;
+                }
+            }
+        }
+    });
+    // Sauvegarder les compteurs dans le localStorage après chaque mise à jour
+    saveCounters();
+}
+
+
+
+function validateChoices() {
+    let allChosen = true; // Vérifie si tous les personnages ont une icône sélectionnée
+    let chosenIcons = []; // Liste pour stocker les icônes choisies
+
+    // Variable pour savoir si on doit afficher l'alerte ou non
+    let errorOccurred = false;
+
+    // Parcours tous les personnages
+    document.querySelectorAll('.person-card').forEach((card, index) => {
+        const selectedIcon = card.querySelector('.selected-icon'); // Trouve l'icône sélectionnée
+        const personId = card.dataset.id; // Utilise l'ID unique du personnage
+        
+        if (selectedIcon) {
+            const iconContent = selectedIcon.textContent.trim(); // Récupère l'emoji
+
+            // Vérifie si cette icône a déjà été choisie
+            if (chosenIcons.includes(iconContent)) {
+                if (!errorOccurred) {
+                    alert("Erreur : Vous avez sélectionné plusieurs fois la même icône.");
+                    errorOccurred = true; // Marque qu'une erreur a eu lieu pour éviter d'afficher plusieurs alertes
+                }
+                return; // Arrête l'exécution ici si un doublon est détecté
+            } else {
+                chosenIcons.push(iconContent); // Ajoute l'icône choisie à la liste
+            }
+        } else {
+            allChosen = false; // Si un personnage n'a pas de choix
+        }
+    });
+
+    // Vérifie si tous les personnages ont une action
+    if (!allChosen) {
+        if (!errorOccurred) {
+            alert("Erreur : Tous les personnages doivent avoir une action.");
+            errorOccurred = true; // Marque qu'une erreur a eu lieu
+        }
+        return; // Arrête l'exécution ici si un personnage n'a pas de choix
+    }
+
+    // Si tout est bon, on affiche un message de validation
+    if (!errorOccurred) {
+        console.log("Validation réussie !");
+        console.log("Icônes choisies :", chosenIcons);
+        // Incrémenter les compteurs en fonction des icônes choisies et de l'index
+       // Met à jour les compteurs en fonction des icônes choisies
+       // Met à jour les compteurs en fonction des icônes choisies
+        // Mise à jour des compteurs après validation
+        updateCountersByImage();
+
+
+        // Afficher les compteurs mis à jour dans la console
+        console.log(gens);
+        saveCounters(gens.reduce((acc, p) => {
+            acc[p.image] = { marry: p.marry, kiss: p.kiss, kill: p.kill };
+            return acc;
+        }, {})); 
+        displayRankings(); // Sauvegarde dans le localStorage
+        generate();
+        // Ajoute ici toute action supplémentaire après la validation
+    }
+}
