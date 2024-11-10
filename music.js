@@ -6,7 +6,7 @@ let gens= [
 ["Katy Perry", "https://i.pinimg.com/564x/a9/b0/f0/a9b0f0d67ac87d94c8f4c6e989cd9add.jpg"],
 ["Sabrina Carpenter", "https://i.pinimg.com/736x/61/bd/1a/61bd1ad3b7bc8d15e15eca74c448ede5.jpg"],
 ["Olivia Rodrigo", "https://i.pinimg.com/236x/c6/b6/63/c6b663d8176165856dcd022a104c346c.jpg"],
-["Dua Lipa", "https://i.pinimg.com/236x/b7/a2/28/b7a228a41bb9784d04dd3866e6e5d96d.jpg"],
+["Dua Lipa", "https://i.pinimg.com/564x/a8/d4/7a/a8d47a63cdfc0b2fc2acc80261014032.jpg"],
 ["Doja Cat", "https://i.pinimg.com/564x/f2/d7/0c/f2d70cf77b0c0c3bc77a51667a4f5763.jpg"],
 ["The Weeknd", "https://i.pinimg.com/236x/7f/5f/aa/7f5faa69bbb4823627b81ea7f7dcce43.jpg"],
 ["Harry Styles", "https://i.pinimg.com/236x/b4/38/f8/b438f8acf276d02c3ab0eefc458cb4e1.jpg"],
@@ -207,25 +207,345 @@ let gens= [
 ["Black M", "https://images.genius.com/500eb6bdfbc4f33bd72af4f3d3e7e6a1.930x930x1.jpg"],
 ["Dadju", "https://i.pinimg.com/564x/bf/2e/df/bf2edf8bda9d382a4549079eee372407.jpg"],
 ["Kesha", "https://i.pinimg.com/736x/12/28/a3/1228a36d1c1f6e3d02c99964d32bc007.jpg"],
+["Peso Pluma", "https://i.pinimg.com/736x/df/a0/fc/dfa0fc1ac0f487f934bbad8d76a5ff16.jpg"],
+["Hamza", "https://i.pinimg.com/564x/f2/31/e4/f231e493b81f4831921aef94a2a09ebe.jpg"],
+["PLK", "https://i.pinimg.com/736x/3f/d4/b8/3fd4b8a064a12f28e79406c959fac667.jpg"],
+["Kalash", "https://i.pinimg.com/564x/a9/28/42/a92842df6f367aeddf2dbb2ca1659fd4.jpg"],
+["Inna", "https://i.pinimg.com/564x/de/6b/11/de6b11604a121651f4427ec133a84231.jpg"],
+["Pibull", "https://i.pinimg.com/564x/36/7f/65/367f655204d00edb31a2c8710eae0781.jpg"],
+["Naza", "https://i.pinimg.com/564x/27/82/b5/2782b56cb7eef60738c9a236afa2d0f6.jpg"],
+["Bigflo & Oli", "https://i.pinimg.com/564x/0e/4c/77/0e4c77b14565473dc0d7377641aceb48.jpg"],
+["Jul", "https://i.pinimg.com/564x/d2/87/a3/d287a3c5f308e39410b97cd7ef0d67d0.jpg"],
+["Freeze Corleone", "https://i.pinimg.com/564x/c3/90/0b/c3900b02e5fcdd44f5b78c802795d188.jpg"],
+["Bad Bunny", "https://i.pinimg.com/564x/01/72/44/0172443c7a1203347d80fe3c20ee8fbf.jpg"],
+["SDM", "https://i.pinimg.com/564x/77/76/91/77769111ed578980c39449a18e164c4a.jpg"],
+["Koba LaD", "https://i.pinimg.com/564x/e5/74/ca/e574ca5fc78423deebc5f23aa4d1ab83.jpg"],
+["Laylow", "https://i.pinimg.com/564x/4e/93/6a/4e936a4b308baa37eb709c14680ad266.jpg"],
+["Favé", "https://i.pinimg.com/564x/54/07/b1/5407b1103864dfaed2736a2893cc07d3.jpg"],
+["Frank Ocean", "https://i.pinimg.com/564x/e7/49/4e/e7494e6210f1846e2b3f3e11df8418d2.jpg"],
+["Sade", "https://i.pinimg.com/564x/07/e9/44/07e94413faf591bcda036f90cc1e5299.jpg"],
+["Childish Gambino", "https://i.pinimg.com/564x/4a/ed/7a/4aed7a34800079767709449c2d1bd6cd.jpg"],
+["Jok'Air", "https://i.pinimg.com/564x/4d/3b/e8/4d3be84fe522134dfc74becf46e1a29d.jpg"],
+["Nekfeu", "https://i.pinimg.com/564x/01/e0/be/01e0be8ab00709271e8779294fe8e7ec.jpg"],
+["Sabrina Claudio", "https://i.pinimg.com/564x/ea/ad/65/eaad654c97819aa44a4cb196a5d66150.jpg"],
+["Kanoe", "https://i.pinimg.com/564x/e6/04/8e/e6048e24142943e57928e8d990c9dcdd.jpg"],
 ]
     
+// Définir la clé du localStorage selon la catégorie
+const localStorageKey = `countersData_music`;
+
+
+gens = gens.map(person => ({
+    name: person[0],
+    image: person[1],
+    kiss: 0,
+    marry: 0,
+    kill: 0
+}));
+
+
+console.log(gens); // Affiche la nouvelle structure avec les compteurs
+
+
 function generate() {
     let person1 = gens[Math.floor(Math.random() * gens.length)];
     let person2 = gens[Math.floor(Math.random() * gens.length)];
     let person3 = gens[Math.floor(Math.random() * gens.length)];
 
-    if (person1[0] == person2[0] || person1[0] == person3[0] || person2[0] == person3[0]) {
+    if (person1.image == person2.image || person1.image == person3.image || person2.image == person3.image) {
         setTimeout(() => {
             generate();
         }, 100);
     } else {
-        document.getElementById('person1-text').innerText = person1[0];
-        document.getElementById('person1-image').src = person1[1];
-        document.getElementById('person2-text').innerText = person2[0];
-        document.getElementById('person2-image').src = person2[1];
-        document.getElementById('person3-text').innerText = person3[0];
-        document.getElementById('person3-image').src = person3[1];
+        document.getElementById('person1-text').innerText = person1.name;
+        document.getElementById('person1-image').src = person1.image;
+
+        document.getElementById('person2-text').innerText = person2.name;
+        document.getElementById('person2-image').src = person2.image;
+
+
+        document.getElementById('person3-text').innerText = person3.name;
+        document.getElementById('person3-image').src = person3.image;
+
+    }
+
+    document.querySelectorAll('.selected-icon').forEach(icon => icon.remove());
+}
+
+generate()
+loadCounters()
+
+// Initialiser les compteurs ou charger depuis le localStorage
+function loadCounters() {
+    const data = localStorage.getItem(localStorageKey);
+    if (data) {
+        const counters = JSON.parse(data);
+        // Mettre à jour gens avec les données du localStorage
+        gens = gens.map(person => ({
+            ...person,
+            kiss: counters[person.image]?.kiss || 0,
+            marry: counters[person.image]?.marry || 0,
+            kill: counters[person.image]?.kill || 0,
+        }));
+        //console.log("Compteurs chargés depuis localStorage :", counters);
     }
 }
 
-generate();
+
+
+// Charger les compteurs depuis localStorage
+// Fonction pour charger les compteurs depuis localStorage
+function loadCountersFromLocalStorage() {
+    const data = localStorage.getItem(localStorageKey);
+    
+    if (data) {
+        try {
+            const counters = JSON.parse(data);
+            //console.log("Compteurs chargés depuis localStorage:", counters);
+            // Assurez-vous que counters est bien un objet
+            if (typeof counters === 'object' && counters !== null) {
+                return counters;
+            } else {
+                console.error("Les données dans localStorage ne sont pas un objet valide.");
+                return {}; // Retourne un objet vide en cas d'erreur
+            }
+        } catch (error) {
+            console.error("Erreur lors du parsing des données depuis localStorage:", error);
+            return {}; // Retourne un objet vide si une erreur se produit
+        }
+    } else {
+        console.log("Aucune donnée trouvée dans localStorage.");
+        return {}; // Retourne un objet vide si aucune donnée n'est trouvée
+    }
+}
+
+// Fonction pour trier les personnages selon l'action
+function getSortedRankings(action, counters) {
+    console.log("Données des compteurs pour le tri:", counters);
+    
+    // Vérification que 'counters' est un objet
+    if (typeof counters !== 'object' || counters === null) {
+        console.error("Les données des compteurs sont invalides.");
+        return []; // Retourne un tableau vide si les données sont invalides
+    }
+
+    return Object.entries(counters) // Convertir l'objet en tableau [clé, valeur]
+        .map(([image, scores]) => ({
+            image,
+            name: scores.name,  // Récupérer le nom
+            origin: scores.origin,  // Récupérer l'origine
+            [action]: scores[action],  // Récupérer le score de l'action
+        }))
+        .sort((a, b) => b[action] - a[action]);  // Trier par score décroissant
+}
+
+// Test pour charger les compteurs et trier par action
+const counters = loadCountersFromLocalStorage();
+const sortedByKiss = getSortedRankings("kiss", counters);
+//console.log("Classement par Kiss:", sortedByKiss);
+
+
+// Créer le classement pour chaque action
+// Fonction pour trier les classements selon l'action (kiss, marry, kill)
+function getSortedRankings(action, counters) {
+    return Object.entries(counters)
+        .map(([image, scores]) => ({
+            image,
+            name: scores.name,
+            origin: scores.origin,
+            [action]: scores[action],
+        }))
+        .sort((a, b) => b[action] - a[action]); // Tri des personnages par action (du plus grand au plus petit)
+}
+
+let currentPodiumIndex = 0; // 0 = Kiss, 1 = Marry, 2 = Kill
+
+// Tableau des classements pour chaque action
+let podiums = [];
+
+// Fonction pour afficher le podium actuel
+
+// Fonction de navigation entre les podiums
+function changePodium(direction) {
+    // Met à jour l'index du podium, avec un cycle (0, 1, 2)
+    currentPodiumIndex = (currentPodiumIndex + direction + podiums.length) % podiums.length;
+    showCurrentPodium();
+}
+
+
+// Afficher les podiums des classements dans l'HTML
+function displayRankings() {
+    const counters = loadCountersFromLocalStorage();
+
+    // Stocker chaque classement dans un tableau de podiums
+    podiums = [
+        getSortedRankings('kiss', counters),
+        getSortedRankings('marry', counters),
+        getSortedRankings('kill', counters)
+    ];
+
+    showCurrentPodium(); // Affiche le premier podium par défaut (kiss)
+}
+
+
+
+// Mettre à jour les podiums avec les informations triées
+function updatePodiumDisplay(podium, action) {
+    // Met à jour le titre du podium en fonction de l'action
+    const podiumTitle = document.getElementById("podium-title");
+    const actionTitles = {
+        kiss: "Top 3 des plus embrassés 💋",
+        marry: "Top 3 des plus mariés 💍",
+        kill: "Top 3 des plus tués 🔪"
+    };
+    podiumTitle.textContent = actionTitles[action];
+
+    // Vérifie que le podium contient bien un top 3
+    if (podium.length >= 3) {
+        // Met à jour chaque podium avec les images, noms, origines, et scores selon l'action sélectionnée
+        document.getElementById("img-1").src = podium[1].image;
+        document.getElementById("name-1").textContent = podium[1].name;
+        document.getElementById("source-1").textContent = podium[1].origin;
+        document.getElementById("score-1").textContent = `${podium[1][action] || 0} fois`;
+
+        document.getElementById("img-2").src = podium[0].image;
+        document.getElementById("name-2").textContent = podium[0].name;
+        document.getElementById("source-2").textContent = podium[0].origin;
+        document.getElementById("score-2").textContent = `${podium[0][action] || 0} fois`;
+
+        document.getElementById("img-3").src = podium[2].image;
+        document.getElementById("name-3").textContent = podium[2].name;
+        document.getElementById("source-3").textContent = podium[2].origin;
+        document.getElementById("score-3").textContent = `${podium[2][action] || 0} fois`;
+    }
+}
+
+function showCurrentPodium() {
+    // Récupère les podiums pour chaque action à partir du localStorage
+    const podiums = {
+        kiss: getSortedRankings('kiss', loadCountersFromLocalStorage()),
+        marry: getSortedRankings('marry', loadCountersFromLocalStorage()),
+        kill: getSortedRankings('kill', loadCountersFromLocalStorage())
+    };
+
+    // Récupère l'action courante basée sur l'index
+    const actions = ["kiss", "marry", "kill"];
+    const action = actions[currentPodiumIndex];
+
+    // Appelle la fonction d'affichage avec le podium correspondant
+    updatePodiumDisplay(podiums[action], action);
+}
+
+
+
+// Appeler cette fonction pour afficher les podiums à chaque mise à jour
+displayRankings();
+
+// Sauvegarder les compteurs dans localStorage
+function saveCounters() {
+    const countersData = gens.reduce((acc, person) => {
+        acc[person.image] = {
+            name: person.name,
+            origin: person.origin,
+            kiss: person.kiss,
+            marry: person.marry,
+            kill: person.kill
+        };
+        return acc;
+    }, {});
+    localStorage.setItem(localStorageKey, JSON.stringify(countersData));
+    //console.log("Compteurs sauvegardés dans le localStorage :", countersData);
+}
+
+
+//########################
+function updateCountersByImage() {
+    document.querySelectorAll('.person-card').forEach((card) => {
+        const imageSrc = card.querySelector('img').src; // Utiliser l'image pour identifier le personnage
+        const selectedIcon = card.querySelector('.selected-icon');
+
+        if (selectedIcon) {
+            const iconContent = selectedIcon.textContent.trim(); // Récupère l'icône sélectionnée
+
+            // Trouver le personnage correspondant par l'image
+            const person = gens.find(p => p.image === imageSrc);
+
+            if (person) {
+                // Incrémente le compteur correspondant en fonction de l'icône choisie
+                if (iconContent === '💋') {
+                    person.kiss++;
+                } else if (iconContent === '💍') {
+                    person.marry++;
+                } else if (iconContent === '🔪') {
+                    person.kill++;
+                }
+            }
+        }
+    });
+    // Sauvegarder les compteurs dans le localStorage après chaque mise à jour
+    saveCounters();
+}
+
+
+
+function validateChoices() {
+    let allChosen = true; // Vérifie si tous les personnages ont une icône sélectionnée
+    let chosenIcons = []; // Liste pour stocker les icônes choisies
+
+    // Variable pour savoir si on doit afficher l'alerte ou non
+    let errorOccurred = false;
+
+    // Parcours tous les personnages
+    document.querySelectorAll('.person-card').forEach((card, index) => {
+        const selectedIcon = card.querySelector('.selected-icon'); // Trouve l'icône sélectionnée
+        const personId = card.dataset.id; // Utilise l'ID unique du personnage
+        
+        if (selectedIcon) {
+            const iconContent = selectedIcon.textContent.trim(); // Récupère l'emoji
+
+            // Vérifie si cette icône a déjà été choisie
+            if (chosenIcons.includes(iconContent)) {
+                if (!errorOccurred) {
+                    alert("Erreur : Vous avez sélectionné plusieurs fois la même icône.");
+                    errorOccurred = true; // Marque qu'une erreur a eu lieu pour éviter d'afficher plusieurs alertes
+                }
+                return; // Arrête l'exécution ici si un doublon est détecté
+            } else {
+                chosenIcons.push(iconContent); // Ajoute l'icône choisie à la liste
+            }
+        } else {
+            allChosen = false; // Si un personnage n'a pas de choix
+        }
+    });
+
+    // Vérifie si tous les personnages ont une action
+    if (!allChosen) {
+        if (!errorOccurred) {
+            alert("Erreur : Tous les personnages doivent avoir une action.");
+            errorOccurred = true; // Marque qu'une erreur a eu lieu
+        }
+        return; // Arrête l'exécution ici si un personnage n'a pas de choix
+    }
+
+    // Si tout est bon, on affiche un message de validation
+    if (!errorOccurred) {
+        console.log("Validation réussie !");
+        console.log("Icônes choisies :", chosenIcons);
+        // Incrémenter les compteurs en fonction des icônes choisies et de l'index
+       // Met à jour les compteurs en fonction des icônes choisies
+       // Met à jour les compteurs en fonction des icônes choisies
+        // Mise à jour des compteurs après validation
+        updateCountersByImage();
+
+
+        // Afficher les compteurs mis à jour dans la console
+        console.log(gens);
+        saveCounters(gens.reduce((acc, p) => {
+            acc[p.image] = { marry: p.marry, kiss: p.kiss, kill: p.kill };
+            return acc;
+        }, {})); 
+        displayRankings(); // Sauvegarde dans le localStorage
+        generate();
+        // Ajoute ici toute action supplémentaire après la validation
+    }
+}
